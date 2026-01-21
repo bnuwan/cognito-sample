@@ -27,3 +27,6 @@ dist-ssr
 .env
 .env.local
 .env.production
+
+# Google OAuth credentials (sensitive)
+client_secret_*.json
