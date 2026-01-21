@@ -12,8 +12,8 @@ export const awsConfig: ResourcesConfig = {
         oauth: {
           domain: 'bnuwan-sample-app.auth.us-east-2.amazoncognito.com',
           scopes: ['openid', 'email', 'profile'],
-          redirectSignIn: ['http://localhost:5173/'],
-          redirectSignOut: ['http://localhost:5173/'],
+          redirectSignIn: ['http://localhost:5173/', 'https://main.d2pm6kysyy37o2.amplifyapp.com/'],
+          redirectSignOut: ['http://localhost:5173/', 'https://main.d2pm6kysyy37o2.amplifyapp.com/'],
           responseType: 'code' as const,
           providers: [{ custom: 'Google' }, { custom: 'Facebook' }]
         }
