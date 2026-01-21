@@ -18,7 +18,7 @@ const Home = () => {
 
   const loadUser = async () => {
     try {
-      const currentUser = await getCurrentUser();
+      await getCurrentUser();
       const attributes = await fetchUserAttributes();
       setUser({
         email: attributes.email,
