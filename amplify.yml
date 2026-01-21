@@ -1,18 +1,17 @@
 version: 1
-applications:
-  - appRoot: cognito-app
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - npm ci
-        build:
-          commands:
-            - npm run build
-      artifacts:
-        baseDirectory: dist
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - node_modules/**/*
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd cognito-app
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: cognito-app/dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - cognito-app/node_modules/**/*
