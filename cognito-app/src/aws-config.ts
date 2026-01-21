@@ -6,8 +6,8 @@ import type { ResourcesConfig } from 'aws-amplify';
 export const awsConfig: ResourcesConfig = {
   Auth: {
     Cognito: {
-      userPoolId: 'us-east-2_3LwQwPkD4',
-      userPoolClientId: 'id7la3ikg2o4vnpuftvl9gmmv',
+      userPoolId: 'us-east-2_t2zxpMaDb',
+      userPoolClientId: '47p3udoog3sjfh5itjh41si3vl',
       loginWith: {
         oauth: {
           domain: 'bnuwan-sample-app.auth.us-east-2.amazoncognito.com',

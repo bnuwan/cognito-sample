@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Amplify } from 'aws-amplify';
-import { getCurrentUser } from 'aws-amplify/auth';
+import { getCurrentUser, fetchAuthSession } from 'aws-amplify/auth';
 import { awsConfig } from './aws-config';
 import Login from './components/Login';
-import Home from './components/Home';
+import Profile from './components/Profile';
 import './App.css';
 
 // Configure Amplify
@@ -19,9 +19,16 @@ function App() {
 
   const checkUser = async () => {
     try {
-      const currentUser = await getCurrentUser();
-      setUser(currentUser);
+      // Check if user is authenticated
+      const session = await fetchAuthSession();
+      if (session.tokens) {
+        const currentUser = await getCurrentUser();
+        setUser(currentUser);
+      } else {
+        setUser(null);
+      }
     } catch (error) {
+      console.log('Not authenticated:', error);
       setUser(null);
     } finally {
       setLoading(false);
@@ -44,7 +51,7 @@ function App() {
     );
   }
 
-  return user ? <Home /> : <Login />;
+  return user ? <Profile /> : <Login />;
 }
 
 export default App;
